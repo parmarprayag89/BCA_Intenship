@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightblue"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Brainy Beam"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/main_image"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:background="@drawable/login"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/main_tittle"
+        android:layout_below="@id/main_image"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:textColor="#E91E63"
+        android:text="Login"
+        android:textStyle="bold|italic"
+
+        android:textSize="40dp"/>
+
+    <EditText
+        android:background="@drawable/custom_border"
+        android:id="@+id/main_email"
+        android:layout_below="@id/main_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Enter Email ID"
+        android:layout_margin="15dp"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:id="@+id/main_pass"
+        android:background="@drawable/custom_border"
+        android:layout_below="@id/main_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_margin="15dp"
+
+        android:hint="Enter Password"
+        android:textSize="20dp"
+        />
+
+    <Button
+        android:layout_below="@id/main_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/custom_button"
+
+        android:text="Login"/>
+
+
+
+
+
+
+
+</RelativeLayout>
