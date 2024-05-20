@@ -5,5 +5,22 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="text_bold_40" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_40sdp</item>
+        <item name="android:textColor">@color/pink</item>
+        <item name="fontFamily">@font/cardo</item>
+        <item name="android:textStyle">bold|italic</item>
+
+    </style>
+
+    <style name="edit_20" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:layout_margin">15dp</item>
+    </style>
+
     <style name="Theme.BCA_Intenship" parent="Base.Theme.BCA_Intenship" />
 </resources>

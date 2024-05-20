@@ -8,66 +8,89 @@
     android:background="@color/lightblue"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/main_image"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:background="@drawable/login"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/main_tittle"
-        android:layout_below="@id/main_image"
+        android:id="@+id/main_creat_account"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        android:padding="@dimen/_5sdp"
+        android:text="create an account  "
+        style="@style/text_bold_40" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content"
-        android:textColor="#E91E63"
-        android:text="Login"
-        android:textStyle="bold|italic"
+        android:layout_height="match_parent">
 
-        android:textSize="40dp"/>
+        <RelativeLayout
+            android:layout_above="@id/main_creat_account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:background="@drawable/custom_border"
-        android:id="@+id/main_email"
-        android:layout_below="@id/main_tittle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="Enter Email ID"
-        android:layout_margin="15dp"
-        android:textSize="20dp"
-        />
+            <ImageView
 
-    <EditText
-        android:id="@+id/main_pass"
-        android:background="@drawable/custom_border"
-        android:layout_below="@id/main_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_margin="15dp"
-
-        android:hint="Enter Password"
-        android:textSize="20dp"
-        />
-
-    <Button
-        android:layout_below="@id/main_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:backgroundTint="@null"
-        android:background="@drawable/custom_button"
-
-        android:text="Login"/>
+                android:id="@+id/main_image"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:background="@drawable/login"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_centerHorizontal="true"/>
 
 
 
+            <TextView
+
+                android:id="@+id/main_tittle"
+                android:layout_below="@id/main_image"
+                android:layout_marginTop="@dimen/_10sdp"
+                style="@style/text_bold_40"
+                android:layout_centerHorizontal="true"
+                android:text="Login  "
+
+                />
+
+
+
+            <EditText
+                android:background="@drawable/custom_border"
+                android:id="@+id/main_email"
+                android:layout_below="@id/main_tittle"
+                style="@style/edit_20"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:hint="Enter Email ID"
+
+                />
+
+            <EditText
+                android:id="@+id/main_pass"
+                android:background="@drawable/custom_border"
+                android:layout_below="@id/main_email"
+                style="@style/edit_20"
+                android:hint="Enter Password"
+                />
+
+            <Button
+                android:layout_below="@id/main_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_50sdpdp"
+                app:backgroundTint="@null"
+                android:background="@drawable/custom_button"
+
+                android:text="Login"/>
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
 
 
 
 
 </RelativeLayout>
+
+
