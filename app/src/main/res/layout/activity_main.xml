@@ -54,6 +54,8 @@
 
 
             <EditText
+                android:textColor="@color/black"
+                android:inputType="textEmailAddress"
                 android:background="@drawable/custom_border"
                 android:id="@+id/main_email"
                 android:layout_below="@id/main_tittle"
@@ -64,6 +66,8 @@
                 />
 
             <EditText
+                android:textColor="@color/black"
+                android:inputType="textPassword"
                 android:id="@+id/main_pass"
                 android:background="@drawable/custom_border"
                 android:layout_below="@id/main_email"
@@ -72,10 +76,11 @@
                 />
 
             <Button
+                android:id="@+id/main_button"
                 android:layout_below="@id/main_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_50sdpdp"
+                android:layout_margin="@dimen/_50sdp"
                 app:backgroundTint="@null"
                 android:background="@drawable/custom_button"
 
