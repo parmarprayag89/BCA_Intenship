@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.security.Signature;
 
@@ -16,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     Button login;
+
+    EditText email,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,20 +30,31 @@ public class MainActivity extends AppCompatActivity {
 
         login = findViewById(R.id.main_button);
 
-       login.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        email = findViewById(R.id.main_email);
+        password = findViewById(R.id.main_pass);
 
-               System.out.println("Login Successsfully");
+        if (email.getText().toString().trim().equals("")) {
+            email.setError("Enter email id ");
 
-               Toast.makeText(MainActivity.this,"Login successfully",Toast.LENGTH_LONG).show();
+        } else if (password.getText().toString().trim().equals("")) {
+            password.setError("password required ");
+        } else if (password.getText().toString().trim().length()<6) {
+            password.setError("Min 6 char required ");
 
-           Intent intent = new Intent(MainActivity.this, SingupActivity.class);
-           startActivity(intent);
+        } else {
+
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+              new CommonMethod(MainActivity.this,"Login");
+
+              new CommonMethod(MainActivity.this,SingupActivity.class);
 
 
-           }
-       });
+                }
+            });
+        }
 
 
     }
