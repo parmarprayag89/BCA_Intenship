@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     else {
 
                         new CommonMethod(MainActivity.this,SingupActivity.class);
+                        new CommonMethod(MainActivity.this,"Login Successfuly");
                     }
 
 
