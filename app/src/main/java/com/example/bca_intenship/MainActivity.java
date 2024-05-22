@@ -33,21 +33,23 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.main_email);
         password = findViewById(R.id.main_pass);
 
-        if (email.getText().toString().trim().equals("")) {
-            email.setError("Enter email id ");
-
-        } else if (password.getText().toString().trim().equals("")) {
-            password.setError("password required ");
-        } else if (password.getText().toString().trim().length()<6) {
-            password.setError("Min 6 char required ");
-
-        } else {
 
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-              new CommonMethod(MainActivity.this,"Login");
+                    if (email.getText().toString().trim().equals("")) {
+                        email.setError("Enter email id ");
+
+                    } else if (password.getText().toString().trim().equals("")) {
+                        password.setError("password required ");
+                    } else if (password.getText().toString().trim().length()<6) {
+                        password.setError("Min 6 char required ");
+
+                    }
+
+
+                    new CommonMethod(MainActivity.this,"Login");
 
               new CommonMethod(MainActivity.this,SingupActivity.class);
 
@@ -58,4 +60,4 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-}
+
