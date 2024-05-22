@@ -47,11 +47,12 @@ public class MainActivity extends AppCompatActivity {
                         password.setError("Min 6 char required ");
 
                     }
+                    else {
+
+                        new CommonMethod(MainActivity.this,SingupActivity.class);
+                    }
 
 
-                    new CommonMethod(MainActivity.this,"Login");
-
-              new CommonMethod(MainActivity.this,SingupActivity.class);
 
 
                 }
