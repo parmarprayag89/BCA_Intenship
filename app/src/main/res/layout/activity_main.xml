@@ -10,22 +10,21 @@
 
 
     <TextView
-        android:id="@+id/main_creat_account"
 
+        android:id="@+id/main_create_account"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp"
-
-        android:padding="@dimen/_5sdp"
-        android:text="create an account  "
+        android:padding="@dimen/_10sdp"
+        android:text="@string/Create_an_account"
         style="@style/text_bold_40" />
 
     <ScrollView
+        android:layout_above="@id/main_create_account"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:layout_above="@id/main_creat_account"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
