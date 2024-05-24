@@ -8,6 +8,7 @@
     tools:context=".CreateActivity">
 
     <ScrollView
+        android:layout_marginTop="@dimen/_30sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,35 +18,96 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="text"
                 android:id="@+id/create_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="username"/>
             <EditText
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="phone"
                 android:id="@+id/create_contact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Contact"/>
             <EditText
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textEmailAddress"
                 android:id="@+id/create_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="emai id"/>
             <EditText
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textPassword"
                 android:id="@+id/create_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="password"/>
             <EditText
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textPassword"
                 android:id="@+id/create_confirmpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="confirm password"/>
+
+            <RadioGroup
+
+                android:orientation="horizontal"
+                android:id="@+id/create_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/Create_male"
+                    android:textSize="@dimen/_15sdp"
+                    android:text="Male"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/Create_female"
+                    android:textSize="@dimen/_15sdp"
+                    android:text="Female"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RadioGroup>
+
+
+            <Spinner
+                android:id="@+id/create_city"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <CheckBox
+                android:id="@+id/create_term"
+                android:text="Terms &amp; condition"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+
+
 
             <Button
                 android:id="@+id/create_button"
