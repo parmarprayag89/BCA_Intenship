@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:hint="username"/>
             <EditText
+                android:drawableLeft="@drawable/call"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="phone"
@@ -34,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Contact"/>
             <EditText
+                android:drawableLeft="@drawable/mail"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textEmailAddress"
@@ -42,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:hint="emai id"/>
             <EditText
+                android:drawableLeft="@drawable/baseline_vpn_key_24"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textPassword"
@@ -50,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:hint="password"/>
             <EditText
+                android:drawableLeft="@drawable/baseline_vpn_key_24"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textPassword"

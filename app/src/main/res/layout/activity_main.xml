@@ -64,19 +64,51 @@
 
                 />
 
-            <EditText
-                android:textColor="@color/black"
-                android:inputType="textPassword"
-                android:id="@+id/main_pass"
-                android:background="@drawable/custom_border"
+            <FrameLayout
+                android:id="@+id/main_farm"
                 android:layout_below="@id/main_email"
-                style="@style/edit_20"
-                android:hint="Enter Password"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:textColor="@color/black"
+                    android:inputType="textPassword"
+                    android:id="@+id/main_pass"
+                    android:background="@drawable/custom_border"
+                    android:layout_below="@id/main_email"
+                    style="@style/edit_20"
+                    android:hint="Enter Password" />
+
+                <ImageView
+                    android:id="@+id/main_pass_hide"
+                    android:src="@drawable/hideen"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_gravity="end|center"
+                    android:visibility="gone"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"/>
+
+                <ImageView
+                    android:id="@+id/main_pass_view"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_gravity="end|center"
+                    android:src="@drawable/view"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"/>
+
+
+            </FrameLayout>
+
+
+
+
+
+
+
 
             <Button
                 android:id="@+id/main_button"
-                android:layout_below="@id/main_pass"
+                android:layout_below="@id/farm_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_50sdp"

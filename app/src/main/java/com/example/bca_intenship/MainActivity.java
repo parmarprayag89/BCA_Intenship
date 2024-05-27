@@ -3,9 +3,11 @@ package com.example.bca_intenship;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
     Button login;
     TextView createAnaccount;
 
+    ImageView passwordview,passwordhide;
     EditText email,password;
+
 
 
 
@@ -44,11 +48,37 @@ public class MainActivity extends AppCompatActivity {
 
         email = findViewById(R.id.main_email);
         password = findViewById(R.id.main_pass);
+        passwordview = findViewById(R.id.main_pass_view);
+        passwordhide = findViewById(R.id.main_pass_hide);
+
+        passwordview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                passwordview.setVisibility(View.GONE);
+                passwordhide.setVisibility(View.VISIBLE);
+                password.setTransformationMethod(null);
+
+
+            }
+        });
+        passwordhide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                passwordview.setVisibility(View.VISIBLE);
+                passwordhide.setVisibility(View.GONE);
+                password.setTransformationMethod(new PasswordTransformationMethod());
+
+            }
+        });
 
 
 
 
-            login.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
