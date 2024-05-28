@@ -108,7 +108,7 @@
 
             <Button
                 android:id="@+id/main_button"
-                android:layout_below="@id/farm_pass"
+                android:layout_below="@id/main_farm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_50sdp"

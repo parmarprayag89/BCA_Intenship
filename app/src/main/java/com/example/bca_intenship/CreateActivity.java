@@ -1,9 +1,11 @@
 package com.example.bca_intenship;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,6 +20,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class CreateActivity extends AppCompatActivity {
 
     EditText username,email,contact,password,confirmpassword;
@@ -25,10 +29,15 @@ public class CreateActivity extends AppCompatActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     RadioGroup gender;
+    String sGender;
 
     Spinner city ;
+    String sCity;
 
     CheckBox term;
+
+
+    SQLiteDatabase sqldb;
 
 
 
@@ -38,6 +47,13 @@ public class CreateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_create);
+
+        sqldb = openOrCreateDatabase("BCA_Intenship.db",MODE_PRIVATE,null);
+
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USER(USERID INTEGER PRIMARY KEY  AUTOINCREMENT, NAME VARCHAR(50),CONTACT BIGINT(10),EMAIL VARCHAR(50),PASSWORD VARCHAR(20),GENDER VARCHAR(6),CITY VARCHAR(10)) ";
+        sqldb.execSQL(tableQuery);
+
+
 
         username = findViewById(R.id.create_username);
         email = findViewById(R.id.create_email);
@@ -51,24 +67,27 @@ public class CreateActivity extends AppCompatActivity {
 
 
         city = findViewById(R.id.create_city);
-        
-        
         String cityArray[] = {"Ahemdabad","Rajkot","Surat","Junagadh","Vadodara"};
+
+        
+        
+
         
          ArrayAdapter adapter = new ArrayAdapter(CreateActivity.this, android.R.layout.select_dialog_item,cityArray);
           city.setAdapter(adapter);
+
+
 
         gender = findViewById(R.id.create_gender);
 
         gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                RadioButton rd = findViewById(i);
-                new CommonMethod(CreateActivity.this,rd.getText().toString());
+                RadioButton rb = findViewById(i);
+                sGender = rb.getText().toString();
+                new CommonMethod(CreateActivity.this,sGender);
             }
         });
-
-
 
 
 
@@ -147,6 +166,14 @@ public class CreateActivity extends AppCompatActivity {
                 }
                 else if(!term.isChecked()){
                     new CommonMethod(CreateActivity.this,"Please select the terms & condition");
+                }
+                else{
+                    //new CommonMethod(CreateActivity.this,"Singup Successfully");
+
+                    String insertQuery = "INSERT IN USER VALUES(NULL,'" +username.getText().toString()+"','"+contact.getText().toString()+"','"+email.getText().toString()+"','"+password.getText().toString()+"','"+sGender+"','"+cityArray+"')";
+                    sqldb.execSQL(insertQuery);
+                    new CommonMethod(CreateActivity.this,"Singup Successfully ");
+                    onBackPressed();
                 }
 
             }
