@@ -1,5 +1,6 @@
 package com.example.bca_intenship;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
@@ -50,8 +51,9 @@ public class CreateActivity extends AppCompatActivity {
 
         sqldb = openOrCreateDatabase("BCA_Intenship.db",MODE_PRIVATE,null);
 
-        String tableQuery = "CREATE TABLE IF NOT EXISTS USER(USERID INTEGER PRIMARY KEY  AUTOINCREMENT, NAME VARCHAR(50),CONTACT BIGINT(10),EMAIL VARCHAR(50),PASSWORD VARCHAR(20),GENDER VARCHAR(6),CITY VARCHAR(10)) ";
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USER(USERID INTEGER PRIMARY KEY  AUTOINCREMENT, NAME VARCHAR(50),CONTACT BIGINT(10),EMAIL VARCHAR(50),PASSWORD VARCHAR(20),GENDER VARCHAR(6)) ";
         sqldb.execSQL(tableQuery);
+
 
 
 
@@ -170,10 +172,36 @@ public class CreateActivity extends AppCompatActivity {
                 else{
                     //new CommonMethod(CreateActivity.this,"Singup Successfully");
 
-                    String insertQuery = "INSERT IN USER VALUES(NULL,'" +username.getText().toString()+"','"+contact.getText().toString()+"','"+email.getText().toString()+"','"+password.getText().toString()+"','"+sGender+"','"+cityArray+"')";
-                    sqldb.execSQL(insertQuery);
-                    new CommonMethod(CreateActivity.this,"Singup Successfully ");
-                    onBackPressed();
+                    String selectQuery = "SELECT * FROM USER WHERE  EMAIL='"+email.getText().toString()+"' OR CONTACT='"+contact.getText().toString()+"'";
+                   Cursor cursor = sqldb.rawQuery(selectQuery,null);
+                   if (cursor.getCount()>0){
+                       new CommonMethod(CreateActivity.this,"User Already Exists");
+                   }
+
+                   else{
+                       String insertQuery = "INSERT INTO USER VALUES(NULL,'" +username.getText().toString()+"','"+contact.getText().toString()+"','"+email.getText().toString()+"','"+password.getText().toString()+"','"+sGender+"','"+cityArray+"')";
+                       sqldb.execSQL(insertQuery);
+                       new CommonMethod(CreateActivity.this,"Singup Successfully ");
+                       onBackPressed();
+
+                   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 }
 
             }

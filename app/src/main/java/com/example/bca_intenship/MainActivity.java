@@ -2,6 +2,8 @@ package com.example.bca_intenship;
 
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -17,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.security.Signature;
+import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView passwordview,passwordhide;
     EditText email,password;
 
+    SQLiteDatabase sqldb;
+
 
 
 
@@ -34,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sqldb = openOrCreateDatabase("BCA_Intenship.db",MODE_PRIVATE,null);
+
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USER(USERID INTEGER PRIMARY KEY  AUTOINCREMENT, NAME VARCHAR(50),CONTACT BIGINT(10),EMAIL VARCHAR(50),PASSWORD VARCHAR(20),GENDER VARCHAR(6)) ";
+        sqldb.execSQL(tableQuery);
 
         createAnaccount = findViewById(R.id.main_create_account);
 
@@ -94,15 +104,24 @@ public class MainActivity extends AppCompatActivity {
                     else {
 
 
-                       Intent intent = new Intent(MainActivity.this,SingupActivity.class);
+                      String selectQuery = "SELECT * FROM USER WHERE (EMAIL='"+email.getText().toString()+"' OR NAME='"+email.getText().toString()+"') AND PASSWORD ='"+password.getText().toString()+"'";
+                        Cursor cursor = sqldb.rawQuery(selectQuery,null);
 
-                        Bundle bundle = new Bundle();
+                        if(cursor.getCount()>0) {
 
-                        bundle.putString("name",email.getText().toString());
-                        bundle.putString("pass",password.getText().toString());
-                        intent.putExtras(bundle);
+                            Intent intent = new Intent(MainActivity.this, SingupActivity.class);
 
-                        startActivity(intent);
+                            Bundle bundle = new Bundle();
+
+                            bundle.putString("name", email.getText().toString());
+                            bundle.putString("pass", password.getText().toString());
+                            intent.putExtras(bundle);
+
+                            startActivity(intent);
+                        }
+                        else {
+                            new CommonMethod(MainActivity.this,"Login Unsuccessfully");
+                        }
                     }
 
 
