@@ -31,6 +31,7 @@ public class CreateActivity extends AppCompatActivity {
 
     RadioGroup gender;
     String sGender;
+    String sPassword;
 
     Spinner city ;
     String sCity;
@@ -71,8 +72,6 @@ public class CreateActivity extends AppCompatActivity {
         city = findViewById(R.id.create_city);
         String cityArray[] = {"Ahemdabad","Rajkot","Surat","Junagadh","Vadodara"};
 
-        
-        
 
         
          ArrayAdapter adapter = new ArrayAdapter(CreateActivity.this, android.R.layout.select_dialog_item,cityArray);

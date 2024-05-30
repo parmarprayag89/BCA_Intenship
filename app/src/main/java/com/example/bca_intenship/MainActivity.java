@@ -2,10 +2,12 @@ package com.example.bca_intenship;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     EditText email,password;
 
     SQLiteDatabase sqldb;
+    SharedPreferences sp;
 
 
 
@@ -39,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sp =getSharedPreferences(ConstantSp.PREF,MODE_PRIVATE);
+
+
 
         sqldb = openOrCreateDatabase("BCA_Intenship.db",MODE_PRIVATE,null);
 
@@ -109,15 +116,41 @@ public class MainActivity extends AppCompatActivity {
 
                         if(cursor.getCount()>0) {
 
-                            Intent intent = new Intent(MainActivity.this, SingupActivity.class);
+                            while (cursor.moveToNext()){
+                                String sUserId = cursor.getString(0);
+                                String sName = cursor.getString(1);
+                                String sContact = cursor.getString(2);
+                                String sEmail = cursor.getString(3);
+                                String sPassword = cursor.getString(4);
+                                String sGender = cursor.getString(5);
 
-                            Bundle bundle = new Bundle();
+                                Log.d("RESPONSE" ,sUserId+"___"+sGender);
 
-                            bundle.putString("name", email.getText().toString());
-                            bundle.putString("pass", password.getText().toString());
-                            intent.putExtras(bundle);
 
-                            startActivity(intent);
+                                sp.edit().putString(ConstantSp.ID,sUserId).commit();
+                                sp.edit().putString(ConstantSp.NAME,sName).commit();
+                                sp.edit().putString(ConstantSp.CONTACT,sContact).commit();
+                                sp.edit().putString(ConstantSp.EMAIL,sEmail).commit();
+                                sp.edit().putString(ConstantSp.PASSWORD,sPassword).commit();
+                                sp.edit().putString(ConstantSp.GENDER,sGender).commit();
+
+
+
+
+
+
+//                                Intent intent = new Intent(MainActivity.this, SingupActivity.class);
+//
+//                                Bundle bundle = new Bundle();
+//
+//                                bundle.putString("name", sEmail);
+//                                bundle.putString("pass", password.getText().toString());
+//                                intent.putExtras(bundle);
+//
+//                                startActivity(intent);
+                            }
+                            new CommonMethod(MainActivity.this,SingupActivity.class);
+
                         }
                         else {
                             new CommonMethod(MainActivity.this,"Login Unsuccessfully");
