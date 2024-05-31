@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +19,7 @@ public class SingupActivity extends AppCompatActivity {
     TextView name,password;
 
     SharedPreferences sp;
+    Button logout,profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,29 @@ public class SingupActivity extends AppCompatActivity {
                         sp.getString(ConstantSp.CONTACT,"")+"\n"+
                         sp.getString(ConstantSp.NAME,"")+"\n"+
                 sp.getString(ConstantSp.EMAIL,""));
+
+        logout = findViewById(R.id.singup_logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sp.edit().clear().commit();
+                new CommonMethod(SingupActivity.this,MainActivity.class);
+                finish();
+
+            }
+        });
+
+        profile =findViewById(R.id.singup_profile);
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new CommonMethod(SingupActivity.this,ProfileActivity.class);
+            }
+        });
+
+
 
 ////
 //        Bundle bundle = getIntent().getExtras();

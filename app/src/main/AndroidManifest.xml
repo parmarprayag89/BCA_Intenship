@@ -13,6 +13,9 @@
         android:theme="@style/Theme.BCA_Intenship"
         tools:targetApi="31">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -23,7 +26,7 @@
         </activity>
         <activity
             android:name=".CreateActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SingupActivity"
             android:exported="false" />

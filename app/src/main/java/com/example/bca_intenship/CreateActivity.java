@@ -184,23 +184,6 @@ public class CreateActivity extends AppCompatActivity {
                        onBackPressed();
 
                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 }
 
             }

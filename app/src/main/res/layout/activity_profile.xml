@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateActivity">
+    tools:context=".ProfileActivity">
 
     <ScrollView
         android:layout_marginTop="@dimen/_30sdp"
@@ -22,7 +22,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="text"
-                android:id="@+id/create_username"
+                android:id="@+id/profile_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="username"/>
@@ -31,7 +31,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="phone"
-                android:id="@+id/create_contact"
+                android:id="@+id/profile_contact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Contact"/>
@@ -40,7 +40,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textEmailAddress"
-                android:id="@+id/create_email"
+                android:id="@+id/profile_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="emai id"/>
@@ -49,7 +49,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textPassword"
-                android:id="@+id/create_password"
+                android:id="@+id/profile_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="password"/>
@@ -58,7 +58,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:inputType="textPassword"
-                android:id="@+id/create_confirmpassword"
+                android:id="@+id/profile_confirmpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="confirm password"/>
@@ -66,7 +66,7 @@
             <RadioGroup
 
                 android:orientation="horizontal"
-                android:id="@+id/create_gender"
+                android:id="@+id/profile_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -75,7 +75,7 @@
                     android:layout_weight="1"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/Create_male"
+                    android:id="@+id/profile_male"
                     android:textSize="@dimen/_15sdp"
                     android:text="Male"
                     android:layout_width="match_parent"
@@ -85,43 +85,31 @@
                     android:layout_weight="1"
                     android:layout_marginHorizontal="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/Create_female"
+                    android:id="@+id/profile_female"
                     android:textSize="@dimen/_15sdp"
                     android:text="Female"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
             </RadioGroup>
-
-
-            <Spinner
-                android:id="@+id/create_city"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <CheckBox
-                android:id="@+id/create_term"
-                android:text="Terms &amp; condition"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-
-
-
-
-
+            
             <Button
-                android:id="@+id/create_button"
+                android:id="@+id/profile_button_edit"
                 android:layout_margin="@dimen/_20sdp"
                 android:textSize="@dimen/_20sdp"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="singup "/>
+                android:text="Edit "/>
+
+            <Button
+                android:id="@+id/profile_button_submit"
+                android:layout_margin="@dimen/_20sdp"
+                android:textSize="@dimen/_20sdp"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit "/>
 
 
 

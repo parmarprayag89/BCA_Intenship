@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".SingupActivity">.
     <LinearLayout
         android:orientation="vertical"
@@ -35,8 +35,28 @@
             android:layout_height="wrap_content"
             android:text="pass"/>
 
+
+
+
+
     </LinearLayout>
 
+    <Button
+        android:id="@+id/singup_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Profile"/>
+
+
+    <Button
+        android:id="@+id/singup_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="Logout"/>
 
 
 
