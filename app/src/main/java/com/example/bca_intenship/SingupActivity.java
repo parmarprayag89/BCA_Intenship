@@ -2,6 +2,7 @@ package com.example.bca_intenship;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,13 +20,21 @@ public class SingupActivity extends AppCompatActivity {
     TextView name,password;
 
     SharedPreferences sp;
-    Button logout,profile;
+    Button logout,profile,delete;
+
+    SQLiteDatabase sqldb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_singup);
         sp = getSharedPreferences(ConstantSp.PREF,MODE_PRIVATE);
+
+        sqldb = openOrCreateDatabase("BCA_Intenship.db",MODE_PRIVATE,null);
+
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USER(USERID INTEGER PRIMARY KEY, NAME VARCHAR(50),CONTACT BIGINT(10),EMAIL VARCHAR(50),PASSWORD VARCHAR(20),GENDER VARCHAR(6)) ";
+        sqldb.execSQL(tableQuery);
+
 
         name = findViewById(R.id.singup_text);
         password = findViewById(R.id.singup_password);
@@ -60,6 +69,23 @@ public class SingupActivity extends AppCompatActivity {
                 new CommonMethod(SingupActivity.this,ProfileActivity.class);
             }
         });
+
+        delete = findViewById(R.id.singup_delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String deleteQuery = "DELETE FROM USER WHERE USERID='"+sp.getString(ConstantSp.ID,"")+"' ";
+                sqldb.execSQL(deleteQuery);
+                new CommonMethod(SingupActivity.this,"Delete successfully");
+
+                sp.edit().clear().commit();
+                new CommonMethod(SingupActivity.this,MainActivity.class);
+                finish();
+
+            }
+        });
+
+
 
 
 

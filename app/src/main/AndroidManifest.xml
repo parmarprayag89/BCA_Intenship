@@ -13,6 +13,9 @@
         android:theme="@style/Theme.BCA_Intenship"
         tools:targetApi="31">
         <activity
+            android:name=".RecyclerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity

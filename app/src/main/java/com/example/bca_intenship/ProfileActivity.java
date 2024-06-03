@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -80,62 +81,19 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
+        Log.d("UPDATE",sp.getString(ConstantSp.GENDER,"")+"\n"+
+                sp.getString(ConstantSp.PASSWORD,"")+"\n"+
+                sp.getString(ConstantSp.ID,"")+"\n"+
+                sp.getString(ConstantSp.CONTACT,"")+"\n"+
+                sp.getString(ConstantSp.NAME,"")+"\n"+
+                sp.getString(ConstantSp.EMAIL,""));
+
+
 
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                password.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                        if (password.getText().toString().trim().equals("")) {
-                            password.setError("Pass required");
-
-
-                        }
-                        else if (password.getText().toString().length()<6) {
-                            password.setError("Min 6 char required ");
-                        }
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-
-                    }
-                });
-                confirmpassword.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                        if (confirmpassword.getText().toString().equals("")) {
-                            confirmpassword.setError("Confirm password");
-                        }
-
-
-                        else if (!password.getText().toString().trim().matches(confirmpassword.getText().toString())) {
-                            confirmpassword.setError("Pass does not match");
-
-                        }
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-
-                    }
-                });
-
-
-
                 if(username.getText().toString().trim().equals("")){
                     username.setError("username required");
 
@@ -148,14 +106,26 @@ public class ProfileActivity extends AppCompatActivity {
                 }
                 else if (contact.getText().toString().trim().equals("")) {
                     contact.setError("Contact no. required");
-
                 }
-
+                else   if (password.getText().toString().trim().equals("")) {
+                    password.setError("Pass required");
+                }
+                else if (password.getText().toString().length()<6) {
+                    password.setError("Min 6 char required ");
+                }
+                else   if (confirmpassword.getText().toString().equals("")) {
+                    confirmpassword.setError("Confirm password");
+                }
+                else if (!password.getText().toString().trim().matches(confirmpassword.getText().toString())) {
+                    confirmpassword.setError("Pass does not match");
+                }
                 else if (gender.getCheckedRadioButtonId() == -1) {
                     new CommonMethod(ProfileActivity.this,"Please select gender");
                 }
-               
                 else{
+                    String updateQuery = "UPDATE USER SET NAME='"+username.getText().toString()+"',CONTACT='"+contact.getText().toString()+"',EMAIL='"+email.getText().toString()+"',PASSWORD='"+password.getText().toString()+"',GENDER='"+sGender+"' WHERE USERID='"+sp.getString(ConstantSp.ID,"")+"' ";
+                    sqldb.execSQL(updateQuery);
+                    new CommonMethod(ProfileActivity.this,"Update Sucessfully");
 
                 }
 
@@ -164,6 +134,7 @@ public class ProfileActivity extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 setData(true);
             }
         });
@@ -203,13 +174,15 @@ public class ProfileActivity extends AppCompatActivity {
 
         if(b){
             edit.setVisibility(View.GONE);
-            submit.setVisibility(View.VISIBLE);
             confirmpassword.setVisibility(View.VISIBLE);
+            submit.setVisibility(View.VISIBLE);
+
         }
         else {
             edit.setVisibility(View.VISIBLE);
-            submit.setVisibility(View.GONE);
             confirmpassword.setVisibility(View.GONE);
+            submit.setVisibility(View.GONE);
+
         }
     }
 
