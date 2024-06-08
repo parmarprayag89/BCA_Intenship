@@ -13,19 +13,27 @@
         android:theme="@style/Theme.BCA_Intenship"
         tools:targetApi="31">
         <activity
-            android:name=".RecyclerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true">
+            android:name=".TabActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityToFragment"
+            android:exported="true"></activity>
+        <activity
+            android:name=".RecyclerActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="false">
+
         </activity>
         <activity
             android:name=".CreateActivity"

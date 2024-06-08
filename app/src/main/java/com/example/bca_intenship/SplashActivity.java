@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
                     new CommonMethod(SplashActivity.this,MainActivity.class);
                 }
                 else {
-                    new CommonMethod(SplashActivity.this,SingupActivity.class);
+                    new CommonMethod(SplashActivity.this,ActivityToFragment.class);
                 }
                 finish();
 

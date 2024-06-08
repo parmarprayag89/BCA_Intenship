@@ -178,7 +178,7 @@ public class CreateActivity extends AppCompatActivity {
                    }
 
                    else{
-                       String insertQuery = "INSERT INTO USER VALUES(NULL,'" +username.getText().toString()+"','"+contact.getText().toString()+"','"+email.getText().toString()+"','"+password.getText().toString()+"','"+sGender+"','"+cityArray+"')";
+                       String insertQuery = "INSERT INTO USER VALUES(NULL,'" +username.getText().toString()+"','"+contact.getText().toString()+"','"+email.getText().toString()+"','"+password.getText().toString()+"','"+sGender+"')";
                        sqldb.execSQL(insertQuery);
                        new CommonMethod(CreateActivity.this,"Singup Successfully ");
                        onBackPressed();
