@@ -13,8 +13,12 @@
         android:theme="@style/Theme.BCA_Intenship"
         tools:targetApi="31">
         <activity
+            android:name=".NavActivity"
+            android:exported="false"
+            android:label="@string/title_activity_nav" />
+        <activity
             android:name=".TabActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,18 +27,16 @@
         </activity>
         <activity
             android:name=".ActivityToFragment"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".RecyclerActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".CreateActivity"
             android:exported="true" />
